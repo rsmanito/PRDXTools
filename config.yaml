@@ -38,8 +38,8 @@ SETTINGS:
     rrs_alerts_role_id: 1120748226119729300
     pride_month_event_id: 1103678285570904200
   Emojis:
-    plasmo_sync_logo: "<:PlasmoSync:996079144825794560>"
-    plasmo_tools: "<:PlasmoTools:1037338470277988373>"
+    prdx_sync_logo: "<:PrdxSync:996079144825794560>"
+    prdx_tools: "<:PrdxTools:1037338470277988373>"
     enabled: "<:enabled:969672429981016084>"
     disabled: "<:disabled:969672065160474684>"
     diamond: "<:dia:1004883678326956043>"
@@ -70,7 +70,7 @@ SETTINGS:
     transactions_channel_id: 1005052807302348900
     penalty_logs_channel_id: 1005254395635716200
     support_invite: "https://discord.gg/Xn7Ya9gv5a"
-  PlasmoRPGuild:
+  PrdxRPGuild:
     guild_id: 672312131760291800
     invite_url: "https://discord.gg/Y8AVM3Csjw"
     admin_role_id: 704364763248984200
@@ -135,7 +135,7 @@ SETTINGS:
     announcements_channel_id: 855532780670419000
     dev_logs_channel_id: 960901660970987600
     mc_logs_channel_id: 963038030195748900
-  PlasmoStructureGuilds:
+  PrdxStructureGuilds:
     - alias: "interpol"
       name: "Интерпол"
       discord_id: 813451608871796700

@@ -16,12 +16,12 @@ with open("config.yml", "r", encoding="utf-8") as file:
 
 DEBUG = bool(int(os.getenv("BOT_DEBUG", "0")))
 TOKEN = os.getenv("TOKEN", None)
-PT_PLASMO_TOKEN = os.getenv("PLASMO_TOKEN", None)
-if PT_PLASMO_TOKEN is None:
-    logger.critical("PLASMO_TOKEN is missing")
-PT_PLASMO_COOKIES = os.getenv("PLASMO_COOKIE", None)
-if PT_PLASMO_COOKIES is None:
-    logger.critical("PLASMO_COOKIE is missing")
+PT_PRDX_TOKEN = os.getenv("PRDX_TOKEN", None)
+if PT_PRDX_TOKEN is None:
+    logger.critical("PRDX_TOKEN is missing")
+PT_PRDX_COOKIES = os.getenv("PRDX_COOKIE", None)
+if PT_PRDX_COOKIES is None:
+    logger.critical("PRDX_COOKIE is missing")
 __version__ = "1.6.0" + ("-alpha" if DEBUG else "")
 
 DATABASE_PATH = config["DATABASE_PATH"]
@@ -68,8 +68,8 @@ class LogsServer:
 
 
 class Emojis:
-    plasmo_sync_logo = config["Emojis"]["plasmo_sync_logo"]
-    plasmo_tools = config["Emojis"]["plasmo_tools"]
+    prdx_sync_logo = config["Emojis"]["prdx_sync_logo"]
+    prdx_tools = config["Emojis"]["prdx_tools"]
     enabled = config["Emojis"]["enabled"]
     disabled = config["Emojis"]["disabled"]
     diamond = config["Emojis"]["diamond"]
@@ -113,36 +113,36 @@ class DevServer:
     support_invite = config["DevServer"]["support_invite"]
 
 
-class PlasmoRPGuild:
+class PrdxRPGuild:
     """
-    Config for Plasmo RP guild
+    Config for Prdx RP guild
     """
 
-    guild_id = config["PlasmoRPGuild"]["guild_id"]
-    invite_url = config["PlasmoRPGuild"]["invite_url"]
-    admin_role_id = config["PlasmoRPGuild"]["admin_role_id"]
-    president_role_id = config["PlasmoRPGuild"]["president_role_id"]
-    mko_head_role_id = config["PlasmoRPGuild"]["mko_head_role_id"]
-    mko_helper_role_id = config["PlasmoRPGuild"]["mko_helper_role_id"]
-    interpol_role_id = config["PlasmoRPGuild"]["interpol_role_id"]
-    banker_role_id = config["PlasmoRPGuild"]["banker_role_id"]
-    player_role_id = config["PlasmoRPGuild"]["player_role_id"]
-    new_player_role_id = config["PlasmoRPGuild"]["new_player_role_id"]
-    keeper_role_id = config["PlasmoRPGuild"]["keeper_role_id"]
-    ne_komar_role_id = config["PlasmoRPGuild"]["ne_komar_role_id"]
-    fusion_role_id = config["PlasmoRPGuild"]["fusion_role_id"]
-    helper_role_id = config["PlasmoRPGuild"]["helper_role_id"]
-    moderator_role_id = config["PlasmoRPGuild"]["moderator_role_id"]
+    guild_id = config["PrdxRPGuild"]["guild_id"]
+    invite_url = config["PrdxRPGuild"]["invite_url"]
+    admin_role_id = config["PrdxRPGuild"]["admin_role_id"]
+    president_role_id = config["PrdxRPGuild"]["president_role_id"]
+    mko_head_role_id = config["PrdxRPGuild"]["mko_head_role_id"]
+    mko_helper_role_id = config["PrdxRPGuild"]["mko_helper_role_id"]
+    interpol_role_id = config["PrdxRPGuild"]["interpol_role_id"]
+    banker_role_id = config["PrdxRPGuild"]["banker_role_id"]
+    player_role_id = config["PrdxRPGuild"]["player_role_id"]
+    new_player_role_id = config["PrdxRPGuild"]["new_player_role_id"]
+    keeper_role_id = config["PrdxRPGuild"]["keeper_role_id"]
+    ne_komar_role_id = config["PrdxRPGuild"]["ne_komar_role_id"]
+    fusion_role_id = config["PrdxRPGuild"]["fusion_role_id"]
+    helper_role_id = config["PrdxRPGuild"]["helper_role_id"]
+    moderator_role_id = config["PrdxRPGuild"]["moderator_role_id"]
 
-    monitored_roles = config["PlasmoRPGuild"]["monitored_roles"]
+    monitored_roles = config["PrdxRPGuild"]["monitored_roles"]
 
-    notifications_channel_id = config["PlasmoRPGuild"]["notifications_channel_id"]
-    game_channel_id = config["PlasmoRPGuild"]["game_channel_id"]
-    anticheat_logs_channel_id = config["PlasmoRPGuild"]["anticheat_logs_channel_id"]
-    server_logs_channel_id = config["PlasmoRPGuild"]["server_logs_channel_id"]
-    logs_channel_id = config["PlasmoRPGuild"]["logs_channel_id"]
-    moderators_channel_id = config["PlasmoRPGuild"]["moderators_channel_id"]
-    messages_channel_id = config["PlasmoRPGuild"]["messages_channel_id"]
+    notifications_channel_id = config["PrdxRPGuild"]["notifications_channel_id"]
+    game_channel_id = config["PrdxRPGuild"]["game_channel_id"]
+    anticheat_logs_channel_id = config["PrdxRPGuild"]["anticheat_logs_channel_id"]
+    server_logs_channel_id = config["PrdxRPGuild"]["server_logs_channel_id"]
+    logs_channel_id = config["PrdxRPGuild"]["logs_channel_id"]
+    moderators_channel_id = config["PrdxRPGuild"]["moderators_channel_id"]
+    messages_channel_id = config["PrdxRPGuild"]["messages_channel_id"]
 
 
 disallowed_to_rrs_roles = config["disallowed_to_rrs_roles"]
@@ -188,7 +188,7 @@ gca_guild = GCAGuild(
 
 
 @dataclass
-class PlasmoStructureGuild:
+class PrdxStructureGuild:
     alias: str
     name: str
     discord_id: int
@@ -201,10 +201,10 @@ class PlasmoStructureGuild:
 
 
 structure_guilds = []
-plasmo_structure_guilds_config = config["PlasmoStructureGuilds"]
+prdx_structure_guilds_config = config["PrdxStructureGuilds"]
 
-for guild_config in plasmo_structure_guilds_config:
-    guild = PlasmoStructureGuild(
+for guild_config in prdx_structure_guilds_config:
+    guild = PrdxStructureGuild(
         alias=guild_config["alias"],
         name=guild_config["name"],
         discord_id=guild_config["discord_id"],
